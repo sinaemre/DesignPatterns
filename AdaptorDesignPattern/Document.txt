@@ -1,0 +1,7 @@
+﻿Adapter(Bağdaştırıcı) Design Pattern
+
+Bağdaştırıcı desenin mantığı uyumsuz arabirimlerden kurtulmaktır. Bir veya daha fazla servis sağlayıcısının kullanması gerek bir order business mantığımızın, bu servisleribn order iş mantığında bulunan kodlara istek attığımda şayet servis sağlayıcılar ile eşleşmiyorsa yani uyumsuzluk var ise bu servisler ile bir arayüz vasıtasıyla uyumlu bir şekilde çalışmasının temin etmemize yardımcı olmaktadır.
+
+Türkiye'de kullanılması için dizayn edilmiş bir notebook'umuz olduğunu düşünelim. Türkiye'deki prizlerden rahatlıkla notebook'umuzu şarj edebiliriz. Lakin aynı notebook'u İngiltere'de şarj etmek istediğimizde bu işlemi yerine getirmek için bir adaptöre yani bir ara aparata ihtiyaç duyarız. 
+
+Bu pattern özellikle hazır kod bloklarından oluşabn temel problem çerçevesinde bir araya gelmiş Framework'ler, kütüphaneler yahut 3rd part tool'lar için çok kullanışlıdır. Örneğin geçmiş yıllarda yazılmış bir yazılımın günümüze uyarlanması için farklı arayüzler yani adaptörler kullanılarak bu uyumsuzluk giderilebilir.  

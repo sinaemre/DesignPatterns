@@ -1,0 +1,13 @@
+﻿The Chain Of Responsibility
+
+Bu davranışsal tasarım modeli, yazılım oluşturma şeklimizi büyük ölçüde değiştirecek, bu nedenle oluşturduğumuz her tür uygulamada kesinlikle yararlanabileceğimiz harika bir modeldir. Sorumluluk zinciri modeli genellikle üç farklı bileşeni bulunmaktadır. Uygulama birşey çağıran göndericimiz(sender) var, bu yüzden alıcı(receiver) zinciri boyunca çalışan bir işleyicimiz(handler) ve alıcının kendisi bu komutu işleyen bir yapıdır. Bu desen gelen bir isteği işlemeye(handle) ya da oluşturulan sorumluluk zincirinde bir sonraki handle'a devretmeye dayanan bir prensibi bulunmaktadır. 
+
+Bu desenin çalışma şekli şu şekildedir. İlk önce sorumluluk zinciri kurulur. Bu sorumluluk zincirinin her bir halkasının üzerine atanmış bir gelen isteği handle etme kapasitesi bulunmaktadır, gelen istekleri karşılayan bir handler bu isteği yerine getirecek yetki ve donanıma sahip değilse bir sonraki handler ya da successor devir eder ve gelen istek handle edilene kadar dolaşır.
+
+Somut bir örnek vermek gerekirse bir bankaya 1 milyon TL kredi çekmek için giden biri ilk önce gişe görevlisi talebini karşılar. Gişe görevlisinin 1-100 bin TL'lik kredileri onaylama yani bu talepleri handle etme yetkisi ve donanımı olduğunu varsayalım, lakin gelen talebi düşündüğümüzde handle edemeyeceğinide görürüz, bu durumda bir sonraki hadler'a yani senaryomuzda birim müdürüne request'i gönderir. Gelen mebla birim müdürünün handle edemeyeceği bir değerde ise şube müdürüne ordanda merkeze gönderilir. Gişe memurur, birim müdürü, şube müdürü ve merkez ile bir sorumluluk zinciri oluşturularak request'leri handle edebiliriz. Böylelikle yetkilerine göre gelen erquestleri handle edebilirler. 
+
+Sorumluluk zincirinde handler'lar zincirimizde eklediğimiz farklı handler'lardan bir veya daha fazlasını yürütmenize izin verir. Alıcının kendisi bir log'ları tutabilecek bir dosyaya kayıt edecek ya da veri tabanına yazabilecek bir yapıda olmalıdır. Alıcı istek üzerine hareket edip edemeyeceğinizi içeren bir mantık mekanizmasına sahiptir. İşleyici(handler) her alıcının kendisine iletilen isteği handle eder ya da bir sonraki handler'a iletir. Bu mimaride ilginç olan şey, gönderinin somut uygulama hakkında bilgi sahibi olması gerekmez. Handler içerisindeki business'tan habersiz olmasıdır. 
+
+Bu pattern'de gelen request'leri karşılayan tek bir alıcı varsa yoğun bir serviste dar boğaz oluşma ihtimalide çok yüksektir. İş mantıklarımızı doğru bir şekilde dizayn edip ona göre bir kurgu yaratmanız gerekmektedir. Çok elzem durumlarda zincirler bazı noktalarda kesişebilirler. 
+
+ASP .NET Core içerisinde pipeline'ın bu desen mantığında çalıştığını unutmayalım!
